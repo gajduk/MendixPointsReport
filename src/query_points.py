@@ -17,9 +17,12 @@ class QueryPoints:
 
 	def queryAndSavePointsForAllUsers(self):
 		users = self._users_list.getUsers()
+		res = []
 		for user in users:
 			points = self._query.getCurrentPointsForUser(user)
 			self._db.savePoints(user,points)
+			res.append({"user":user,"points":points})
+		return res
 
 def main():
 	QueryPoints().queryAndSavePointsForAllUsers()

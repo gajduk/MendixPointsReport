@@ -7,11 +7,15 @@ class MongoDBInterface:
 	#dates interfaces
 	_dates = ''
 
-	def __init__(self, dates=Dates(), coll_name="MendixPointsMock"):
+	def __init__(self, dates=Dates(), useTestColl=True):
 		username = quote_plus(database_credentials.db_username)
 		password = quote_plus(database_credentials.db_password)
 		client = pymongo.MongoClient('mongodb://%s:%s@ds042417.mlab.com:42417/mendix-points-report' % (username, password))
-		self._points_coll = client["mendix-points-report"][coll_name]
+		self._points_coll = client["mendix-points-report"]
+		if useTestColl:
+			self._points_coll = self._points_coll["MendixPointsMock"]
+		else:
+			self._points_coll = self._points_coll["MendixPoints"]
 		self._dates = dates
 
 	def savePoints(self,DisplayName,Points):

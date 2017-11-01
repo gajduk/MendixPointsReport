@@ -1,0 +1,11 @@
+2017-11-01 17:41:01 : Started main
+2017-11-01 17:41:01 : Started querying
+2017-11-01 17:41:08 : Querying finished:[{'sucess': True, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-01 17:42:00 : Started main
+2017-11-01 17:42:00 : Started querying
+2017-11-01 17:42:07 : Querying finished:[{'points': {u'Platform': 2541, u'Appstore': 322, u'Forum': 2272, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-01 17:43:31 : Started main
+2017-11-01 17:43:31 : Started querying
+2017-11-01 17:43:38 : Querying finished:[{'points': {u'Platform': 2541, u'Appstore': 322, u'Forum': 2272, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
