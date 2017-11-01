@@ -1,32 +1,52 @@
-import rethinkdb as r
-import datetime
-import dates
+import pymongo
+from urllib import quote_plus
+import database_credentials
 
-pointsTable = r.table("MendixPoints")
 
-def savePoints(DisplayName,Points):
-	currentDay = dates.getCurrentDay()
-	previousPoints,deltaDays = _getPreviousPointsAndDeltaDays(currentDay,DisplayName)
-	deltaPoints = {}
-	if previousPoints:
-		deltaPoints = {e:(Points[e]-previousPoints[e])*1.0/deltaDays for e in Points }
+class MongoDBInterface:
+	#dates interfaces
+	_dates = ''
 
-	pointsTable.insert([
-		{
-			"DisplayName": DisplayName,
-			"TotalPoints": Points,
-			"DeltaPoints": deltaPoints,
-			"Day": currentDay
-		}
-	]).run()
+	def __init__(self, dates):
+		username = quote_plus(database_credentials.db_username)
+		password = quote_plus(database_credentials.db_password)
+		client = pymongo.MongoClient('mongodb://%s:%s@ds042417.mlab.com:42417/mendix-points-report' % (username, password))
+		self._points_coll = client["mendix-points-report"]["MendixPointsMock"]
+		self._dates = dates
 
-def _getPreviousPointsAndDeltaDays(Day,DisplayName):
-	try:
-		previousPointsRecord = pointsTable.filter(r.row["Day"] < Day & r.row["DisplayName"] == DisplayName).limit(1)[0]
-		return previousPointsRecord["TotalPoints"],Day-previousPointsRecord["Day"]
-	except:
-		pass
+	def savePoints(self,DisplayName,Points):
+		currentDay = self._dates.getCurrentDay()
+		previousPoints,deltaDays = self._getPreviousPointsAndDeltaDays(currentDay,DisplayName)
+		deltaPoints = {}
+		if previousPoints:
+			deltaPoints = {e:(Points[e]-previousPoints[e])*1.0/deltaDays for e in Points }
 
-def queryPointsForUser(DisplayName,Date):
-	queryDay = dates.getDayForDate(Date)
-	return pointsTable.filter(r.row["Day"] == queryDay & r.row["DisplayName"] == DisplayName).limit(1)[0]
+		self._points_coll.find_one_and_update(
+			{
+				"DisplayName": DisplayName,
+				"Day": currentDay
+			},
+			{
+				"$set": {
+							"TotalPoints": Points,
+							"DeltaPoints": deltaPoints,
+						}
+			},
+			upsert=True)
+
+	def _getPreviousPointsAndDeltaDays(self,Day,DisplayName):
+		try:
+			previousPointsRecord = self._points_coll.find_one({
+				"DisplayName" : DisplayName,
+				"Day": {"$lt": Day }
+			})
+			return previousPointsRecord["TotalPoints"],Day-previousPointsRecord["Day"]
+		except:
+			return None,None
+
+	def queryPointsForUser(self,DisplayName,Date):
+		queryDay = self._dates.getDayForDate(Date)
+		return points_coll.find_one({
+				"DisplayName" : DisplayName,
+				"Day": queryDay
+			})

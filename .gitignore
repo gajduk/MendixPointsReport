@@ -1,1 +1,3 @@
 data
+src/database_credentials.py
+*.pyc

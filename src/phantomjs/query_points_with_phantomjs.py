@@ -4,14 +4,23 @@ from os import listdir
 from os.path import isfile, join
 import json
 
-phantom_js = "phantom_getuserstats.js"
+class PhantomJSQuery:
+	_phantom_js = join("phantomjs","phantom_getuserstats.js")
 
-def getCurrentPointsForUser(DisplayName):
-	res = check_output(["phantomjs", phantom_js, DisplayName])
-	return res
+	def getCurrentPointsForUser(self,DisplayName):
+		res = check_output(["phantomjs", self._phantom_js, DisplayName])
+		return json.loads(res)
+
+class MockQuery:
+
+	def __init__(self,points):
+		self._points = points
+
+	def getCurrentPointsForUser(self,DisplayName):
+		return points
 
 def main():
-	print getCurrentPointsForUser("Andrej Gajduk")
+	print PhatnomJSQuery().getCurrentPointsForUser("Andrej Gajduk")
 
 if __name__ == "__main__":
 	main()
