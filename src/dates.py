@@ -3,10 +3,10 @@ import datetime
 date_formatt = "%d_%m_%y"
 begginingOfTime = datetime.datetime(1970,1,1)
 
-class Dates:
+class Dates(object):
 
 	def getCurrentDay(self):
-		return self.getDayForDate(datetime.datetime.utcnow())
+		return (datetime.datetime.utcnow() - begginingOfTime).days
 
 	def getDayForDate(self,date):
 		return (date - begginingOfTime).days

@@ -17,7 +17,7 @@ class MockQuery:
 		self._points = points
 
 	def getCurrentPointsForUser(self,DisplayName):
-		return points
+		return self._points
 
 def main():
 	print PhatnomJSQuery().getCurrentPointsForUser("Andrej Gajduk")
