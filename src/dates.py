@@ -1,6 +1,7 @@
 import datetime
 
-date_formatt = "%d_%m_%y"
+date_formatt = "%Y-%m-%d"
+datetime_formatt = "%Y-%m-%d %H:%M:%S"
 begginingOfTime = datetime.datetime(1970,1,1)
 
 class Dates(object):
@@ -12,10 +13,16 @@ class Dates(object):
 		return (date - begginingOfTime).days
 
 	def getDateForDay(self,day):
-		return begginingOfTime+timedelta(days=day)
+		return begginingOfTime+datetime.timedelta(days=day)
+
+	def getDatestampForDate(self,date):
+		return date.strftime(date_formatt)
 
 	def getTimestampForDate(self,date):
-		return date.strftime(date_formatt)
+		return date.strftime(datetime_formatt)
+
+	def getTimestamp(self):
+		return self.getTimestampForDate(datetime.datetime.utcnow())
 
 class DatesWithOffset(Dates):
 
@@ -30,3 +37,6 @@ class DatesWithOffset(Dates):
 
 	def getDateForDay(self,day):
 		return super(DatesWithOffset, self).getDateForDay(day+self._offset)
+
+	def getTimestamp(self):
+		return getTimestampForDateTime(datetime.datetime.utcnow()+datetime.timedelta(days=self._offset))

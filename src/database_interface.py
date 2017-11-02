@@ -33,7 +33,8 @@ class MongoDBInterface:
 					{
 						"$set": {
 									"DeltaPoints": deltaPoints,
-									"Inferred": True
+									"Inferred": True,
+									"Timestamp": self._dates.getTimestampForDate(self._dates.getDateForDay(currentDay-day))
 								}
 					},
 					upsert=True)
@@ -46,7 +47,8 @@ class MongoDBInterface:
 				"$set": {
 							"TotalPoints": Points,
 							"DeltaPoints": deltaPoints,
-							"Inferred": deltaDays>1
+							"Inferred": deltaDays>1,
+							"Timestamp": self._dates.getTimestamp()
 						}
 			},
 			upsert=True)

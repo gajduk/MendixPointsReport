@@ -9,3 +9,67 @@ SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff
 2017-11-01 17:43:31 : Started main
 2017-11-01 17:43:31 : Started querying
 2017-11-01 17:43:38 : Querying finished:[{'points': {u'Platform': 2541, u'Appstore': 322, u'Forum': 2272, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 08:02:03 : Started main
+2017-11-02 08:02:03 : Started querying
+2017-11-02 08:02:40 : Querying finished:[{'points': {u'Platform': 2541, u'Appstore': 322, u'Forum': 2282, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 11:41:06 : Started main
+2017-11-02 11:41:06 : Started querying
+2017-11-02 11:41:14 !!ERROR!! :  Traceback (most recent call last):
+  File "main.py", line 21, in main
+    queryPointsAndSave(db,users_list)
+  File "main.py", line 13, in queryPointsAndSave
+    query_res = query_executor.queryAndSavePointsForAllUsers()
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\query_points.py", line 23, in queryAndSavePointsForAllUsers
+    self._db.savePoints(user,points)
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\database_interface.py", line 51, in savePoints
+    "Date": self._dates.getTimestampForDate(self._dates.getDateForDay(currentDay))
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\dates.py", line 15, in getDateForDay
+    return begginingOfTime+timedelta(days=day)
+NameError: global name 'timedelta' is not defined
+
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 11:42:39 : Started main
+2017-11-02 11:42:39 : Started querying
+2017-11-02 11:42:46 !!ERROR!! :  Traceback (most recent call last):
+  File "main.py", line 21, in main
+    queryPointsAndSave(db,users_list)
+  File "main.py", line 13, in queryPointsAndSave
+    query_res = query_executor.queryAndSavePointsForAllUsers()
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\query_points.py", line 23, in queryAndSavePointsForAllUsers
+    self._db.savePoints(user,points)
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\database_interface.py", line 51, in savePoints
+    "Date": self._dates.getTimestampForDate(self._dates.getDateForDay(currentDay))
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\dates.py", line 15, in getDateForDay
+    return begginingOfTime+timedelta(days=day)
+NameError: global name 'timedelta' is not defined
+
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 11:43:26 : Started main
+2017-11-02 11:43:26 : Started querying
+2017-11-02 11:43:33 : Querying finished:[{'points': {u'Platform': 2542, u'Appstore': 322, u'Forum': 2282, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 11:45:11 : Started main
+2017-11-02 11:45:11 : Started querying
+2017-11-02 11:45:18 : Querying finished:[{'points': {u'Platform': 2542, u'Appstore': 322, u'Forum': 2282, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 11:47:30 : Started main
+2017-11-02 11:47:30 : Started querying
+2017-11-02 11:47:38 !!ERROR!! :  Traceback (most recent call last):
+  File "main.py", line 21, in main
+    queryPointsAndSave(db,users_list)
+  File "main.py", line 13, in queryPointsAndSave
+    query_res = query_executor.queryAndSavePointsForAllUsers()
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\query_points.py", line 23, in queryAndSavePointsForAllUsers
+    self._db.savePoints(user,points)
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\database_interface.py", line 51, in savePoints
+    "Date": self._dates.getTimestamp()
+  File "C:\Users\gajduka\Documents\GitHub\MendixPointsReport\src\dates.py", line 25, in getTimestamp
+    return getTimestampForDateTime(datetime.datetime.utcnow())
+NameError: global name 'getTimestampForDateTime' is not defined
+
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-02 11:48:15 : Started main
+2017-11-02 11:48:15 : Started querying
+2017-11-02 11:48:21 : Querying finished:[{'points': {u'Platform': 2542, u'Appstore': 322, u'Forum': 2282, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
