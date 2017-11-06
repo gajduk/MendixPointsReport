@@ -73,3 +73,19 @@ SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff
 2017-11-02 11:48:15 : Started main
 2017-11-02 11:48:15 : Started querying
 2017-11-02 11:48:21 : Querying finished:[{'points': {u'Platform': 2542, u'Appstore': 322, u'Forum': 2282, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-03 01:51:37 : Started main
+2017-11-03 01:51:37 : Started querying
+2017-11-03 01:51:47 : Querying finished:[{'points': {u'Platform': 2558, u'Appstore': 327, u'Forum': 2292, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-04 01:51:37 : Started main
+2017-11-04 01:51:37 : Started querying
+2017-11-04 01:51:44 : Querying finished:[{'points': {u'Platform': 2573, u'Appstore': 327, u'Forum': 2312, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-05 01:51:37 : Started main
+2017-11-05 01:51:37 : Started querying
+2017-11-05 01:51:43 : Querying finished:[{'points': {u'Platform': 2573, u'Appstore': 327, u'Forum': 2312, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]
+SetProcessDpiAwareness failed: "COM error 0x80070005  (Unknown error 0x0ffffffff80070005)"
+2017-11-06 01:51:37 : Started main
+2017-11-06 01:51:37 : Started querying
+2017-11-06 01:51:45 : Querying finished:[{'points': {u'Platform': 2594, u'Appstore': 332, u'Forum': 2312, u'Community': 0, u'Learning': 375}, 'user': 'Andrej Gajduk'}]

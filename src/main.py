@@ -2,7 +2,7 @@ from logger import log
 import traceback
 from database_interface import MongoDBInterface
 from dates import Dates
-from users_list import UsersList
+from users_list import UsersListDB
 from query_points import QueryPoints
 from phantomjs.query_points_with_phantomjs import PhantomJSQuery
 
@@ -17,7 +17,7 @@ def main():
     try:
         log("Started main")
         db = MongoDBInterface(dates=Dates(), useTestColl=False)
-        users_list = UsersList()
+        users_list = UsersListDB(db)
         queryPointsAndSave(db,users_list)
     except Exception as e:
         log(traceback.format_exc(),error=True)

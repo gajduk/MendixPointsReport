@@ -38,5 +38,8 @@ class DatesWithOffset(Dates):
 	def getDateForDay(self,day):
 		return super(DatesWithOffset, self).getDateForDay(day+self._offset)
 
-	def getTimestamp(self):
-		return getTimestampForDateTime(datetime.datetime.utcnow()+datetime.timedelta(days=self._offset))
+	def getTimestampForDate(self,date):
+		return super(DatesWithOffset, self).getTimestampForDate(date+datetime.timedelta(days=self._offset))
+
+	def getDatestampForDate(self,date):
+		return super(DatesWithOffset, self).getDatestampForDate(date+datetime.timedelta(days=self._offset))
